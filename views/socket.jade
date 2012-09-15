@@ -6,6 +6,7 @@ script
         var socket = io.connect('http://localhost:3000');
         socket.on('connect', function () {
             // init document with input field, stdout area, and stdin area
+            if ($('#command').length) return null;
             $('body').append('<input id="command"></input>');
             $('body').append('<input id="cwd"></input>');
             $('body').append('<textarea id="stdout" rows=8></textarea>');
