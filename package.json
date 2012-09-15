@@ -1,0 +1,14 @@
+{
+    "name" : "wam",
+    "author" : "Alex Ahn",
+    "version" : "0.0.2",
+    "private" : true,
+    "dependencies" : {
+        "express" : ">= 2.9.9",
+        "less" : ">= 0.0.1",
+        "jade" : ">= 0.0.1",
+        "async" : ">=0.1.22",
+        "socket.io" : ">= 0.9.10"
+    },
+    "engine" : "node >= 0.8.1"
+}

@@ -1,0 +1,27 @@
+script(src="/socket.io/socket.io.js")
+script(src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js")
+script
+    $(document).ready(function () {
+        console.log('ready');
+        var socket = io.connect('http://localhost:3000');
+        socket.on('connect', function () {
+            // init document with input field, stdout area, and stdin area
+            $('body').append('<input id="command"></input>');
+            $('body').append('<input id="cwd"></input>');
+            $('body').append('<textarea id="stdout" rows=8></textarea>');
+            $('body').append('<textarea id="stderr" rows=8></textarea>');
+            $('#command').keypress(function (e) {
+                if (e.which == 13) {
+                    event.preventDefault();
+                    socket.emit('command', $('#command').val());
+                    $('#command').val('');
+                }
+            });
+            console.log('connected!');
+        });
+        socket.on('command:response', function (data) {
+            $('#cwd').val(data.cwd);
+            $('#stdout').val(data.stdout);
+            $('#stderr').val(data.stderr);
+        });
+    });

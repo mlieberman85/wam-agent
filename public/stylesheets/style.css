@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+div.tokenholder {
+    position: absolute;
+    top: 7px;
+}
+
+.socket {
+    position: absolute;
+    top : 0px;
+    left : 0px;
+}
